@@ -8,29 +8,34 @@
 import Foundation
 
 protocol API {
-    func load() async -> String
+    func load() async -> NavigationSectionModel
 }
 
 class APIImpl: API {
-    func load() async -> String {
+    func load() async -> NavigationSectionModel {
         print("Loading")
-        return "Default"
+        return NavigationSectionModel(name: "Section", id: "00", count: 2)
     }
 }
 
 class HomeAPI: APIImpl {
-    override func load() async -> String {
+    override func load() async -> NavigationSectionModel {
         return await withCheckedContinuation { continuation in
             print("Loading with queryParams mp_home and config mp_home")            
             sleep(4)
-            continuation.resume(with: .success("Olá Home"))
+            let model = NavigationSectionModel(name: "Section-home", id: "1", count: 0)
+            continuation.resume(with: .success(model))
         }
     }
 }
 
 class HubSellerAPI: APIImpl {
-    override func load() async -> String {
-        print("Loading with queryParams mp_seller and Config mp_seller")
-        return "Seller"
+    override func load() async -> NavigationSectionModel {        
+        return await withCheckedContinuation { continuation in
+            print("Loading with queryParams mp_seller and Config mp_seller")
+            sleep(2)
+            let model = NavigationSectionModel(name: "Section-hub-seller", id: "1", count: 0)
+            continuation.resume(with: .success(model))
+        }
     }
 }

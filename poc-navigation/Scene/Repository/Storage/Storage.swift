@@ -5,24 +5,30 @@
 //  Created by Marcos Felipe Souza Pinto on 01/11/22.
 //
 
-import Foundation
+import Combine
 
 class AnyStorage<StorageType>: Storage {
     
-    private let save: (_ model: StorageType) -> Void
+    private let _save: (_ model: StorageType) -> Void
+    private let _restore: AnyPublisher<StorageType, Never>
     
     init<T: Storage>(wrappedStore: T) where T.StorageType == StorageType {
-        self.save = wrappedStore.save(_:)
+        _save = wrappedStore.save(_:)
+        _restore = wrappedStore.restore()
     }
     
     func save(_ model: StorageType) {
-        save(model)
+        _save(model)
+    }
+    func restore() -> AnyPublisher<StorageType, Never> {
+        return _restore
     }
 }
 
 protocol Storage {
     associatedtype StorageType
     func save(_ model: StorageType)
+    func restore() -> AnyPublisher<StorageType, Never>
 }
 
 extension Storage {

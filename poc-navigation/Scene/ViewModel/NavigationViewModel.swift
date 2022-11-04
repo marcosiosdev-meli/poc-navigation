@@ -20,11 +20,11 @@ class NavigationViewModel: ObservableObject {
     @Published
     var stateModel = NavigationSectionViewData()
     
-    let storage: AnyStorage<Int>
+    let storage: AnyStorage<NavigationSectionModel>
     let api: API
     
     init(
-        storage: AnyStorage<Int>,
+        storage: AnyStorage<NavigationSectionModel>,
         api: API
     ) {
         self.storage = storage
@@ -42,13 +42,14 @@ class NavigationViewModel: ObservableObject {
         Task {
             stateModel.loading = true
             let load = await api.load()
-            stateModel.title = load
+            stateModel = NavigationSectionViewData(loading: false, title: load.name, count: load.count)            
             stateModel.loading = false
         }
     }
     
     func addCount() {
         stateModel.count += 1
-        storage.save(stateModel.count)
+        let model = NavigationSectionModel(name: stateModel.title, id: "0", count: stateModel.count)
+        storage.save(model)
     }
 }
