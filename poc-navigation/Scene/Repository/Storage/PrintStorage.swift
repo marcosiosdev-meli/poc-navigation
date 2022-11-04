@@ -19,7 +19,7 @@ class PrintStorage: Storage {
     func restore() -> AnyPublisher<NavigationSectionModel, Never> {
         return Future<NavigationSectionModel, Never> { promise in
             print("get object by: _\(self.idSave)_")
-            promise(.success(self.modelSaved ?? NavigationSectionModel()))
+            promise(.success(self.modelSaved ?? NavigationSectionModel(name: "Section-BANK-\(self.idSave)")))
         }.eraseToAnyPublisher()
     }
     

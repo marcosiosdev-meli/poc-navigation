@@ -23,7 +23,7 @@ class HomeAPI: APIImpl {
         return await withCheckedContinuation { continuation in
             print("Loading with queryParams mp_home and config mp_home")            
             sleep(4)
-            let model = NavigationSectionModel(name: "Section-home", id: "1", count: 0)
+            let model = NavigationSectionModel(name: "Section-home", id: "1", count: 2)
             continuation.resume(with: .success(model))
         }
     }
@@ -34,7 +34,7 @@ class HubSellerAPI: APIImpl {
         return await withCheckedContinuation { continuation in
             print("Loading with queryParams mp_seller and Config mp_seller")
             sleep(2)
-            let model = NavigationSectionModel(name: "Section-hub-seller", id: "1", count: 0)
+            let model = NavigationSectionModel(name: "Section-hub-seller", id: "1", count: 3)
             continuation.resume(with: .success(model))
         }
     }

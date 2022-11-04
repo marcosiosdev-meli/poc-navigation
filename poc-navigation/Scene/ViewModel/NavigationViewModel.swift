@@ -6,8 +6,9 @@
 //
 
 import Combine
+import Foundation
 
-struct NavigationSectionViewData {
+struct NavigationSectionViewState {
     var loading: Bool = true
     var title: String = ""
     var count: Int = 0
@@ -18,38 +19,50 @@ struct NavigationSectionViewData {
 class NavigationViewModel: ObservableObject {
     
     @Published
-    var stateModel = NavigationSectionViewData()
+    var stateModel = NavigationSectionViewState()
     
-    let storage: AnyStorage<NavigationSectionModel>
-    let api: API
+    let interactor: NavigationInteractor
     
-    init(
-        storage: AnyStorage<NavigationSectionModel>,
-        api: API
-    ) {
-        self.storage = storage
-        self.api = api
-    }
+    private var cancellables = Set<AnyCancellable>()
     
     init(
-        serviceLocator: ServiceLocator
+        interactor: NavigationInteractor
     ) {
-        self.storage = serviceLocator.getService()!
-        self.api = serviceLocator.getService()!
+        self.interactor = interactor
     }
+    
     
     func load() {
-        Task {
-            stateModel.loading = true
-            let load = await api.load()
-            stateModel = NavigationSectionViewData(loading: false, title: load.name, count: load.count)            
-            stateModel.loading = false
-        }
+        stateModel.loading = true
+        interactor
+            .fetchDatas()
+            .receive(on: DispatchQueue.main)
+            .sink { error in
+                switch error {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                default: break
+                }
+            } receiveValue: { navigationSectionModel in
+                self.convertStateModel(navigationSectionModel: navigationSectionModel)
+            }
+            .store(in: &cancellables)
+
     }
     
     func addCount() {
         stateModel.count += 1
-        let model = NavigationSectionModel(name: stateModel.title, id: "0", count: stateModel.count)
-        storage.save(model)
+        interactor.save(navigationSectionModel: mapperStateModelTo())
+    }
+    
+    private func mapperStateModelTo() -> NavigationSectionModel {
+        .init(name: stateModel.title, id: "aaa", count: stateModel.count)
+    }
+    
+    private func convertStateModel(
+        navigationSectionModel: NavigationSectionModel,
+        isLoading: Bool = false
+    ) {
+        stateModel = NavigationSectionViewState(loading: isLoading, title: navigationSectionModel.name, count: navigationSectionModel.count)
     }
 }

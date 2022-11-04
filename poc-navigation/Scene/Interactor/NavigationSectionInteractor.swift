@@ -30,6 +30,7 @@ enum NavigationSectionError: Error {
 
 protocol NavigationInteractor: AnyObject {
     func fetchDatas() -> AnyPublisher<NavigationSectionModel, NavigationSectionError>
+    func save(navigationSectionModel: NavigationSectionModel)
 }
 
 class NavigationSectionInteractor: NavigationInteractor {
@@ -63,5 +64,9 @@ class NavigationSectionInteractor: NavigationInteractor {
                 return result
             })
             .eraseToAnyPublisher()
+    }
+    
+    func save(navigationSectionModel: NavigationSectionModel) {
+        storage.save(navigationSectionModel)
     }
 }

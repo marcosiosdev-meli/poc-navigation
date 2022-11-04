@@ -67,9 +67,11 @@ struct ServiceLocatorManager {
         serviceLocator.addService(HomeAPI() as API)
         serviceLocator.addService(HomePrintStorage().ereaseToAnyStorage() as AnyStorage)
         serviceLocator.addService(
-            NavigationViewModel(
-                storage: serviceLocator.getService()!,
-                api: serviceLocator.getService()!))
+            NavigationSectionInteractor(storage: serviceLocator.getService()!, api: serviceLocator.getService()!) as NavigationInteractor
+        )
+        
+        serviceLocator.addService(NavigationViewModel(interactor: serviceLocator.getService()!))
+            
         return serviceLocator
     }
     
@@ -78,9 +80,9 @@ struct ServiceLocatorManager {
         serviceLocator.addService(HubSellerAPI() as API)
         serviceLocator.addService(HubSellerPrintStorage().ereaseToAnyStorage() as AnyStorage)
         serviceLocator.addService(
-            NavigationViewModel(
-                storage: serviceLocator.getService()!,
-                api: serviceLocator.getService()!))
+            NavigationSectionInteractor(storage: serviceLocator.getService()!, api: serviceLocator.getService()!) as NavigationInteractor
+        )
+        serviceLocator.addService(NavigationViewModel(interactor: serviceLocator.getService()!))
         return serviceLocator
     }
     
