@@ -13,7 +13,9 @@ protocol ServiceLocator {
 
 final class BasicServiceLocator: ServiceLocator {
 
-    // Service registry
+    /// Service registry
+    /// [Type: Any]
+    /// Sample: [MyProtocol: MyClassImplementation]
     private lazy var reg: Dictionary<String, Any> = [:]
 
     private func typeName(some: Any) -> String {        
@@ -23,7 +25,7 @@ final class BasicServiceLocator: ServiceLocator {
     func addService<T>(_ service: T) {
         let key = typeName(some: T.self)
         reg[key] = service
-//        print("Service added: KEY \(key) / ? \(typeName(some: service)) Y Service = \(service)")        
+        print("Service added: KEY \(key) / ? \(typeName(some: service)) Y Service = \(service)")
     }
     
     @discardableResult
@@ -37,5 +39,4 @@ final class BasicServiceLocator: ServiceLocator {
         let key = typeName(some: T.self)
         return reg[key] as? T
     }
-
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 class NavigationHostingSwiftUI: UIHostingController<NavigationSectionsView> {
-    init(_ serviceLocator: ServiceLocator) {
-        let viewModel: NavigationViewModel = serviceLocator.getService()!
+    init(_ dependenciesResolver: DependenciesResolver) {
+        let viewModel = dependenciesResolver.getNavigationViewModel()
         let rootView = NavigationSectionsView(viewModel: viewModel)
         super.init(rootView: rootView)
     }

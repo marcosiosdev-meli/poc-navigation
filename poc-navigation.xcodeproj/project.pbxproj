@@ -16,11 +16,13 @@
 		EE2823622911C0D1005E6061 /* NavigationSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2823612911C0D1005E6061 /* NavigationSectionsViewController.swift */; };
 		EE2823642911CE20005E6061 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2823632911CE20005E6061 /* ServiceLocator.swift */; };
 		EE28236C2911D3D0005E6061 /* poc_navigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE28236B2911D3D0005E6061 /* poc_navigationTests.swift */; };
+		EE511514291DA5300044180E /* DependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511513291DA5300044180E /* DependenciesResolver.swift */; };
+		EE511516291DA6FB0044180E /* AbstractStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511515291DA6FB0044180E /* AbstractStorage.swift */; };
+		EE511518291DA8C30044180E /* APIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511517291DA8C30044180E /* APIImpl.swift */; };
 		EEBD7E932914ACEE0063DE58 /* NavigationSectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */; };
 		EEFC36A9291201BF00BB3282 /* NavigationHostingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */; };
 		EEFC36AC291201F200BB3282 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36AB291201F200BB3282 /* Storage.swift */; };
 		EEFC36AF2912021900BB3282 /* UIViewController+childens.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36AE2912021900BB3282 /* UIViewController+childens.swift */; };
-		EEFC36B12912022F00BB3282 /* PrintStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36B02912022F00BB3282 /* PrintStorage.swift */; };
 		EEFC36B32912025000BB3282 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36B22912025000BB3282 /* API.swift */; };
 		EEFC36B62912026E00BB3282 /* NavigationSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36B52912026E00BB3282 /* NavigationSectionsView.swift */; };
 		EEFC36B92912029300BB3282 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36B82912029300BB3282 /* NavigationViewModel.swift */; };
@@ -49,11 +51,13 @@
 		EE2823632911CE20005E6061 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		EE2823692911D3D0005E6061 /* poc-navigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "poc-navigationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE28236B2911D3D0005E6061 /* poc_navigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poc_navigationTests.swift; sourceTree = "<group>"; };
+		EE511513291DA5300044180E /* DependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesResolver.swift; sourceTree = "<group>"; };
+		EE511515291DA6FB0044180E /* AbstractStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractStorage.swift; sourceTree = "<group>"; };
+		EE511517291DA8C30044180E /* APIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImpl.swift; sourceTree = "<group>"; };
 		EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionInteractor.swift; sourceTree = "<group>"; };
 		EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHostingSwiftUI.swift; sourceTree = "<group>"; };
 		EEFC36AB291201F200BB3282 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EEFC36AE2912021900BB3282 /* UIViewController+childens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+childens.swift"; sourceTree = "<group>"; };
-		EEFC36B02912022F00BB3282 /* PrintStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintStorage.swift; sourceTree = "<group>"; };
 		EEFC36B22912025000BB3282 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EEFC36B52912026E00BB3282 /* NavigationSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionsView.swift; sourceTree = "<group>"; };
 		EEFC36B82912029300BB3282 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +124,14 @@
 			path = "poc-navigationTests";
 			sourceTree = "<group>";
 		};
+		EE511512291DA5200044180E /* DependenciesResolver */ = {
+			isa = PBXGroup;
+			children = (
+				EE511513291DA5300044180E /* DependenciesResolver.swift */,
+			);
+			path = DependenciesResolver;
+			sourceTree = "<group>";
+		};
 		EEBD7E902914ACCC0063DE58 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFC36AB291201F200BB3282 /* Storage.swift */,
-				EEFC36B02912022F00BB3282 /* PrintStorage.swift */,
+				EE511515291DA6FB0044180E /* AbstractStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -174,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFC36B22912025000BB3282 /* API.swift */,
+				EE511517291DA8C30044180E /* APIImpl.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -197,6 +210,7 @@
 		EEFC36BB291202C800BB3282 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EE511512291DA5200044180E /* DependenciesResolver */,
 				EEBD7E912914ACDA0063DE58 /* Interactor */,
 				EEBD7E902914ACCC0063DE58 /* Repository */,
 				EEFC36A7291201B100BB3282 /* HostingSwiftUI */,
@@ -312,13 +326,15 @@
 				EE2823522911C058005E6061 /* ViewController.swift in Sources */,
 				EEFC36B62912026E00BB3282 /* NavigationSectionsView.swift in Sources */,
 				EEFC36AC291201F200BB3282 /* Storage.swift in Sources */,
+				EE511518291DA8C30044180E /* APIImpl.swift in Sources */,
 				EE2823642911CE20005E6061 /* ServiceLocator.swift in Sources */,
-				EEFC36B12912022F00BB3282 /* PrintStorage.swift in Sources */,
 				EEFC36B32912025000BB3282 /* API.swift in Sources */,
 				EEFC36A9291201BF00BB3282 /* NavigationHostingSwiftUI.swift in Sources */,
 				EEFC36AF2912021900BB3282 /* UIViewController+childens.swift in Sources */,
 				EE2823622911C0D1005E6061 /* NavigationSectionsViewController.swift in Sources */,
+				EE511514291DA5300044180E /* DependenciesResolver.swift in Sources */,
 				EEBD7E932914ACEE0063DE58 /* NavigationSectionInteractor.swift in Sources */,
+				EE511516291DA6FB0044180E /* AbstractStorage.swift in Sources */,
 				EE28234E2911C058005E6061 /* AppDelegate.swift in Sources */,
 				EE2823502911C058005E6061 /* SceneDelegate.swift in Sources */,
 			);

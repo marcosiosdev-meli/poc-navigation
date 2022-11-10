@@ -52,7 +52,14 @@ class NavigationViewModel: ObservableObject {
     
     func addCount() {
         stateModel.count += 1
+        // if type == isCount
         interactor.save(navigationSectionModel: mapperStateModelTo())
+        
+        // if type == deeplink
+        
+        // if type is copy ..
+        
+        //tracking event this tap.
     }
     
     private func mapperStateModelTo() -> NavigationSectionModel {

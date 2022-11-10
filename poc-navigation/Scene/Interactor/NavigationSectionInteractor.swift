@@ -56,12 +56,14 @@ class NavigationSectionInteractor: NavigationInteractor {
             }
         }.eraseToAnyPublisher()
         
-        return loadApi.merge(with: storage.restore())
+        return loadApi.combineLatest(storage.restore())
             .mapError({ _ in
                 NavigationSectionError.network
             })
-            .map({ result -> NavigationSectionModel in
-                return result
+            .map({ loadApi, storage in
+                loadApi.count > storage.count ?
+                loadApi :
+                storage                
             })
             .eraseToAnyPublisher()
     }

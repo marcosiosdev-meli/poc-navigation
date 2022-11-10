@@ -31,12 +31,12 @@ class NavigationSectionsViewController: UIViewController {
         }
         
         // build serviceLocator
-        let serviceLocator =
-            ServiceLocatorManager()
+        let dependenciesResolver =
+            DependenciesResolverManager()
                 .build(with: navigationSectionType)
         
         // build view
-        let viewController = NavigationHostingSwiftUI(serviceLocator)        
+        let viewController = NavigationHostingSwiftUI(dependenciesResolver)        
         add(viewController)
         
         // setup constraints to all edges
@@ -50,43 +50,6 @@ class NavigationSectionsViewController: UIViewController {
     }
 }
 
-@MainActor 
-struct ServiceLocatorManager {
-    
-    func build(with navigationType: NavigationSectionType) -> ServiceLocator {
-        switch navigationType {
-        case .home:
-            return buildHome()
-        case .hubSeller:
-            return buildHubSeller()
-        }
-    }
-    
-    func buildHome() -> BasicServiceLocator {
-        let serviceLocator = BasicServiceLocator()
-        serviceLocator.addService(HomeAPI() as API)
-        serviceLocator.addService(HomePrintStorage().ereaseToAnyStorage() as AnyStorage)
-        serviceLocator.addService(
-            NavigationSectionInteractor(storage: serviceLocator.getService()!, api: serviceLocator.getService()!) as NavigationInteractor
-        )
-        
-        serviceLocator.addService(NavigationViewModel(interactor: serviceLocator.getService()!))
-            
-        return serviceLocator
-    }
-    
-    func buildHubSeller() -> BasicServiceLocator {
-        let serviceLocator = BasicServiceLocator()
-        serviceLocator.addService(HubSellerAPI() as API)
-        serviceLocator.addService(HubSellerPrintStorage().ereaseToAnyStorage() as AnyStorage)
-        serviceLocator.addService(
-            NavigationSectionInteractor(storage: serviceLocator.getService()!, api: serviceLocator.getService()!) as NavigationInteractor
-        )
-        serviceLocator.addService(NavigationViewModel(interactor: serviceLocator.getService()!))
-        return serviceLocator
-    }
-    
-}
 
 enum NavigationSectionType: String {
     case home
