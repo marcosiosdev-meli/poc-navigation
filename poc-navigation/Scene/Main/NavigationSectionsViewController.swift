@@ -36,10 +36,12 @@ class NavigationSectionsViewController: UIViewController {
                 .build(with: navigationSectionType)
         
         // build view
-        let viewController = NavigationHostingSwiftUI(dependenciesResolver)        
+        let viewController = NavigationHostingSwiftUI(dependenciesResolver)
+        
+        // add Child in self with viewController
         add(viewController)
         
-        // setup constraints to all edges
+        // setup constraints to all edges of self.view
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),

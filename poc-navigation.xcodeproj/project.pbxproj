@@ -19,6 +19,10 @@
 		EE511514291DA5300044180E /* DependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511513291DA5300044180E /* DependenciesResolver.swift */; };
 		EE511516291DA6FB0044180E /* AbstractStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511515291DA6FB0044180E /* AbstractStorage.swift */; };
 		EE511518291DA8C30044180E /* APIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511517291DA8C30044180E /* APIImpl.swift */; };
+		EE51151B291EBD750044180E /* NavigationSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE51151A291EBD750044180E /* NavigationSectionModel.swift */; };
+		EE51151E291ECD8B0044180E /* FullFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE51151D291ECD8B0044180E /* FullFile.swift */; };
+		EE511520291ED15D0044180E /* realJson.json in Resources */ = {isa = PBXBuildFile; fileRef = EE51151F291ED15D0044180E /* realJson.json */; };
+		EE511522291ED1710044180E /* ModelCodableFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511521291ED1710044180E /* ModelCodableFromJson.swift */; };
 		EEBD7E932914ACEE0063DE58 /* NavigationSectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */; };
 		EEFC36A9291201BF00BB3282 /* NavigationHostingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */; };
 		EEFC36AC291201F200BB3282 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36AB291201F200BB3282 /* Storage.swift */; };
@@ -54,6 +58,10 @@
 		EE511513291DA5300044180E /* DependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesResolver.swift; sourceTree = "<group>"; };
 		EE511515291DA6FB0044180E /* AbstractStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractStorage.swift; sourceTree = "<group>"; };
 		EE511517291DA8C30044180E /* APIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImpl.swift; sourceTree = "<group>"; };
+		EE51151A291EBD750044180E /* NavigationSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionModel.swift; sourceTree = "<group>"; };
+		EE51151D291ECD8B0044180E /* FullFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFile.swift; sourceTree = "<group>"; };
+		EE51151F291ED15D0044180E /* realJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = realJson.json; sourceTree = "<group>"; };
+		EE511521291ED1710044180E /* ModelCodableFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCodableFromJson.swift; sourceTree = "<group>"; };
 		EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionInteractor.swift; sourceTree = "<group>"; };
 		EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHostingSwiftUI.swift; sourceTree = "<group>"; };
 		EEFC36AB291201F200BB3282 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -102,6 +110,7 @@
 		EE28234C2911C058005E6061 /* poc-navigation */ = {
 			isa = PBXGroup;
 			children = (
+				EE51151C291ECD7B0044180E /* ScenesBasedRealAPI */,
 				EEFC36AD2912020800BB3282 /* Extensions */,
 				EEFC36BB291202C800BB3282 /* Scene */,
 				EE28234D2911C058005E6061 /* AppDelegate.swift */,
@@ -130,6 +139,24 @@
 				EE511513291DA5300044180E /* DependenciesResolver.swift */,
 			);
 			path = DependenciesResolver;
+			sourceTree = "<group>";
+		};
+		EE511519291EBD6B0044180E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE51151A291EBD750044180E /* NavigationSectionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE51151C291ECD7B0044180E /* ScenesBasedRealAPI */ = {
+			isa = PBXGroup;
+			children = (
+				EE51151D291ECD8B0044180E /* FullFile.swift */,
+				EE51151F291ED15D0044180E /* realJson.json */,
+				EE511521291ED1710044180E /* ModelCodableFromJson.swift */,
+			);
+			path = ScenesBasedRealAPI;
 			sourceTree = "<group>";
 		};
 		EEBD7E902914ACCC0063DE58 /* Repository */ = {
@@ -210,6 +237,7 @@
 		EEFC36BB291202C800BB3282 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				EE511519291EBD6B0044180E /* Model */,
 				EE511512291DA5200044180E /* DependenciesResolver */,
 				EEBD7E912914ACDA0063DE58 /* Interactor */,
 				EEBD7E902914ACCC0063DE58 /* Repository */,
@@ -304,6 +332,7 @@
 			files = (
 				EE28235A2911C05A005E6061 /* LaunchScreen.storyboard in Resources */,
 				EE2823572911C05A005E6061 /* Assets.xcassets in Resources */,
+				EE511520291ED15D0044180E /* realJson.json in Resources */,
 				EE2823552911C058005E6061 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +353,7 @@
 			files = (
 				EEFC36B92912029300BB3282 /* NavigationViewModel.swift in Sources */,
 				EE2823522911C058005E6061 /* ViewController.swift in Sources */,
+				EE51151E291ECD8B0044180E /* FullFile.swift in Sources */,
 				EEFC36B62912026E00BB3282 /* NavigationSectionsView.swift in Sources */,
 				EEFC36AC291201F200BB3282 /* Storage.swift in Sources */,
 				EE511518291DA8C30044180E /* APIImpl.swift in Sources */,
@@ -335,7 +365,9 @@
 				EE511514291DA5300044180E /* DependenciesResolver.swift in Sources */,
 				EEBD7E932914ACEE0063DE58 /* NavigationSectionInteractor.swift in Sources */,
 				EE511516291DA6FB0044180E /* AbstractStorage.swift in Sources */,
+				EE51151B291EBD750044180E /* NavigationSectionModel.swift in Sources */,
 				EE28234E2911C058005E6061 /* AppDelegate.swift in Sources */,
+				EE511522291ED1710044180E /* ModelCodableFromJson.swift in Sources */,
 				EE2823502911C058005E6061 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

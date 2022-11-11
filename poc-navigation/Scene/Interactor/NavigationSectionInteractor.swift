@@ -8,22 +8,6 @@
 import Combine
 import Foundation
 
-struct NavigationSectionModel: Codable {
-    let name: String
-    let id: String
-    var count: Int = 0
-    
-    init(
-        name: String = "",
-        id: String = UUID().uuidString,
-        count: Int = 0
-    ) {
-        self.name = name
-        self.id = id
-        self.count = count
-    }
-}
-
 enum NavigationSectionError: Error {
     case network
 }
@@ -63,7 +47,7 @@ class NavigationSectionInteractor: NavigationInteractor {
             .map({ loadApi, storage in
                 loadApi.count > storage.count ?
                 loadApi :
-                storage                
+                storage
             })
             .eraseToAnyPublisher()
     }

@@ -16,6 +16,17 @@ protocol DependenciesResolver {
     func getNavigationViewModel() -> NavigationViewModel
 }
 
+/// Optional or Commumn
+extension DependenciesResolver {
+    @MainActor
+    func getNavigationViewModel() -> NavigationViewModel {
+        NavigationViewModel(interactor: getNavigationSectionInteractor())
+    }
+    
+    func getNavigationSectionInteractor() -> NavigationInteractor {
+        NavigationSectionInteractor(storage: getNavigationStorage(), api: getApi())
+    }
+}
 
 class HomeDepenciesResolver: DependenciesResolver {
     
@@ -25,15 +36,6 @@ class HomeDepenciesResolver: DependenciesResolver {
     
     func getNavigationStorage() -> AnyStorage<NavigationSectionModel> {
         HomeStorage().ereaseToAnyStorage()
-    }
-    
-    func getNavigationSectionInteractor() -> NavigationInteractor {
-        NavigationSectionInteractor(storage: getNavigationStorage(), api: getApi())
-    }
-    
-    @MainActor
-    func getNavigationViewModel() -> NavigationViewModel {
-        NavigationViewModel(interactor: getNavigationSectionInteractor())
     }
 }
 
@@ -45,18 +47,10 @@ class HubSellerDepenciesResolver: DependenciesResolver {
     func getNavigationStorage() -> AnyStorage<NavigationSectionModel> {
         HubSellerStorage().ereaseToAnyStorage()
     }
-    
-    func getNavigationSectionInteractor() -> NavigationInteractor {
-        NavigationSectionInteractor(storage: getNavigationStorage(), api: getApi())
-    }
-    
-    @MainActor
-    func getNavigationViewModel() -> NavigationViewModel {
-        NavigationViewModel(interactor: getNavigationSectionInteractor())
-    }
 }
 
 
+///DependenciesResolverManager ser apenas un Builder
 @MainActor
 struct DependenciesResolverManager {
     func build(with navigationType: NavigationSectionType) -> DependenciesResolver {
