@@ -9,7 +9,7 @@ import Foundation
 
 protocol DependenciesResolver {
     func getApi() -> API
-    func getNavigationSectionInteractor() -> NavigationInteractor
+    func getNavigationSectionInteractor() -> NavigationInteractor //useCase
     func getNavigationStorage() -> AnyStorage<NavigationSectionModel>
     
     @MainActor

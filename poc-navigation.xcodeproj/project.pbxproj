@@ -24,6 +24,7 @@
 		EE511520291ED15D0044180E /* realJson.json in Resources */ = {isa = PBXBuildFile; fileRef = EE51151F291ED15D0044180E /* realJson.json */; };
 		EE511522291ED1710044180E /* ModelCodableFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE511521291ED1710044180E /* ModelCodableFromJson.swift */; };
 		EEBD7E932914ACEE0063DE58 /* NavigationSectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */; };
+		EEBD9A22292FC49A004D8A5E /* NavigationSectionsDeeplinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD9A21292FC49A004D8A5E /* NavigationSectionsDeeplinkView.swift */; };
 		EEFC36A9291201BF00BB3282 /* NavigationHostingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */; };
 		EEFC36AC291201F200BB3282 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36AB291201F200BB3282 /* Storage.swift */; };
 		EEFC36AF2912021900BB3282 /* UIViewController+childens.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC36AE2912021900BB3282 /* UIViewController+childens.swift */; };
@@ -63,6 +64,7 @@
 		EE51151F291ED15D0044180E /* realJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = realJson.json; sourceTree = "<group>"; };
 		EE511521291ED1710044180E /* ModelCodableFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCodableFromJson.swift; sourceTree = "<group>"; };
 		EEBD7E922914ACEE0063DE58 /* NavigationSectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionInteractor.swift; sourceTree = "<group>"; };
+		EEBD9A21292FC49A004D8A5E /* NavigationSectionsDeeplinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSectionsDeeplinkView.swift; sourceTree = "<group>"; };
 		EEFC36A8291201BF00BB3282 /* NavigationHostingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHostingSwiftUI.swift; sourceTree = "<group>"; };
 		EEFC36AB291201F200BB3282 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EEFC36AE2912021900BB3282 /* UIViewController+childens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+childens.swift"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFC36B52912026E00BB3282 /* NavigationSectionsView.swift */,
+				EEBD9A21292FC49A004D8A5E /* NavigationSectionsDeeplinkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				EEFC36B62912026E00BB3282 /* NavigationSectionsView.swift in Sources */,
 				EEFC36AC291201F200BB3282 /* Storage.swift in Sources */,
 				EE511518291DA8C30044180E /* APIImpl.swift in Sources */,
+				EEBD9A22292FC49A004D8A5E /* NavigationSectionsDeeplinkView.swift in Sources */,
 				EE2823642911CE20005E6061 /* ServiceLocator.swift in Sources */,
 				EEFC36B32912025000BB3282 /* API.swift in Sources */,
 				EEFC36A9291201BF00BB3282 /* NavigationHostingSwiftUI.swift in Sources */,

@@ -8,6 +8,11 @@
 import SwiftUI
 import UIKit
 
+// COORDINATOR Start ( deeplink )
+// Menu ...
+// tabbar.selectIndex = 2
+// deepLink Para SDK.
+
 class NavigationSectionsViewController: UIViewController {
     
     let dictionary: [AnyHashable : Any]
@@ -22,6 +27,7 @@ class NavigationSectionsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //OnCreated == Android
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,3 +70,12 @@ enum NavigationSectionType: String {
         }
     }
 }
+
+/**
+ 
+ NavigationSectionViewController ( deeplink )
+ viewDidLoad() -> Injecao do SwiftUI como ViewController em childViewController
+ 
+ 
+ */
+
